@@ -1,0 +1,36 @@
+name: Android CI
+
+on:
+  push:
+    # 브랜치명이 version/*에서 push되면 Job 동작
+    branches: 
+      - version/*
+  pull_request:
+    # 브랜치명이 version/*에서 pull_request 되면 Job 동작
+    branches: 
+      - version/*
+
+# 트리거처럼 동작될 Job
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # 키스토어 설정
+    env:
+      KEY_ALIAS: $test
+      KEYSTORE_PASSWORD: $qwerty
+      KEY_PASSWORD: $qwerty
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew build
