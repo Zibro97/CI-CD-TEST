@@ -41,4 +41,5 @@ jobs:
 
     - name: Upload APKS to Google Drive
       with:
-        credentials_json: $
+        credentials_json: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS }}
+        parent_folder_id: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
