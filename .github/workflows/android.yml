@@ -41,6 +41,7 @@ jobs:
       run: ./gradlew build
 
     - name: Upload APKS to Google Drive
+      uses: willo32/google-drive-upload-action@v1
       with:
         credentials_json: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS }}
         parent_folder_id: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
