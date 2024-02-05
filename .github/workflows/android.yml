@@ -19,9 +19,9 @@ jobs:
 
     # 키스토어 설정
     env:
-      KEY_ALIAS: $KEY_ALIAS
-      KEYSTORE_PASSWORD: $KEY_PASSWORD
-      KEY_PASSWORD: $KEY_PASSWORD
+      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+      KEYSTORE_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
     #GitHub Repository로 체크아웃
     steps:
@@ -38,7 +38,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew assembleRelease
 
     - name: Upload APKS to Google Drive
       uses: willo32/google-drive-upload-action@v1
