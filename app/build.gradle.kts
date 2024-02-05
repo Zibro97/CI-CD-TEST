@@ -22,7 +22,7 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("../../keystore/test_keystore.jks")
+            storeFile = file("C:\\Users\\zibro\\StudioProjects\\keystore\\test_keystore.jks")
             storePassword = "qwerty"
             keyAlias = "test"
             keyPassword = "qwerty"
