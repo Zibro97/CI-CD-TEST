@@ -19,9 +19,9 @@ jobs:
 
     # 키스토어 설정
     env:
-      KEY_ALIAS: $test
-      KEYSTORE_PASSWORD: $qwerty
-      KEY_PASSWORD: $qwerty
+      KEY_ALIAS: $KEY_ALIAS
+      KEYSTORE_PASSWORD: $KEY_PASSWORD
+      KEY_PASSWORD: $KEY_PASSWORD
 
     #GitHub Repository로 체크아웃
     steps:
